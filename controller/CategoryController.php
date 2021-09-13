@@ -16,6 +16,9 @@
                 $data = $category->getCategoryID($body["cat_id"]);
                 echo json_encode($data);
             break;
+            case "Insert":
+                $data = $category->CreateCategory($body["cat_nom"], $body["cat_obs"]);
+                echo json_encode ("successfully data inserted!");
         }
 
 

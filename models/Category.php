@@ -1,9 +1,9 @@
 <?php
-
+// CRUD - API REST :  logical functions
 class Category extends Connection
 {
 
-    // method SELECT information for status equals at 1
+    // method for to get information for status equals at 1
     public function getCategory()
     {
 
@@ -15,7 +15,7 @@ class Category extends Connection
 
         return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
-    //  method for return category for ID.
+    //  method to get categories of products by ID.
     public function getCategoryID($cat_id)
     {
         $connect = parent::connect();
@@ -29,6 +29,7 @@ class Category extends Connection
 
         return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+    //  method for create a new category in database.
     public function CreateCategory($cat_nom, $cat_obs)
     {
         $connect = parent::connect();
@@ -42,6 +43,6 @@ class Category extends Connection
 
         return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    // method for update the categories in database.
 
 }

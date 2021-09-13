@@ -10,7 +10,7 @@ class Category extends Connection
         $connect = parent::connect();
         parent::set_names();
 
-        $sql = $connect->prepare("SELECT * FROM category WHERE estatus=1 ");
+        $sql = $connect->prepare("SELECT * FROM category WHERE estatus=1");
         $sql->execute();
 
         return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -65,4 +65,22 @@ class Category extends Connection
 
         return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+     // method for update the status of categories in database.
+     public function DeleteCategory($cat_id)
+     {
+         $connect = parent::connect();
+         parent::set_names();
+ 
+         $sql = $connect->prepare(
+             "UPDATE category SET
+                 estatus = '0'
+                 WHERE
+                 cat_id = ?"
+         );
+        
+         $sql->bindValue(1,$cat_id);
+         $sql->execute();
+ 
+         return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+     }
 }

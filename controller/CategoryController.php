@@ -24,4 +24,8 @@
                 $data = $category->UpdateCategory($body["cat_id"],$body["cat_nom"], $body["cat_obs"]);
                 echo json_encode ("update successfully data!");
             break;
+            case "Delete":
+                $data = $category->DeleteCategory($body["cat_id"]);
+                echo json_encode ("Delete successfully!");
+            break;
         }

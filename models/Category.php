@@ -36,7 +36,8 @@ class Category extends Connection
         parent::set_names();
 
         $sql = $connect->prepare(
-            "INSERT INTO category(cat_id,cat_nom,cat_obs,estatus) VALUES(NULL,?,?,'1');");
+            "INSERT INTO category(cat_id,cat_nom,cat_obs,estatus) VALUES(NULL,?,?,'1');"
+        );
         $sql->bindValue(1, $cat_nom);
         $sql->bindValue(2, $cat_obs);
         $sql->execute();
@@ -52,9 +53,11 @@ class Category extends Connection
         $sql = $connect->prepare(
             "UPDATE category SET
                 cat_nom =?, 
-                cat_obs =?,
+                cat_obs =?
                 WHERE
-                cat_id = ?");
+                cat_id = ?"
+        );
+       
         $sql->bindValue(1, $cat_nom);
         $sql->bindValue(2, $cat_obs);
         $sql->bindValue(3, $cat_id);

@@ -1,4 +1,4 @@
-# API WITH PHP 
+# API REST WITH PHP 
 
 > API Rest con PHP consumido desde Postman.
 
@@ -20,3 +20,6 @@ todos los datos a introducir son en formato JSON desde el programa Postman.
     # Solo altera el registro a estado 0.
     http://localhost:YOURPORT/controller/CategoryController.php?op=Delete
 ```
+
+## Screenshot
+<img src="Screenshot.png" with="80%">

@@ -4,9 +4,15 @@
 
     $category = new Category();
 
+    
     switch($_GET["op"]){
-        
+        case "GetAll":
+            // return  a json of category
+            $data = $category->getCategory();
+            echo json_encode($data);
+            break;
     }
 
+    
 
 ?>

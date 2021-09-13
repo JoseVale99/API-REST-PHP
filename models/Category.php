@@ -11,7 +11,7 @@ class Category extends Connection{
         $sql = $connect->prepare("SELECT * FROM category WHERE estatus=1 ");
         $sql->execute();
 
-        return $result = $sql->fetchAll();
+        return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

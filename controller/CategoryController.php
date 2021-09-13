@@ -10,6 +10,7 @@
             // return  a json of category
             $data = $category->getCategory();
             echo json_encode($data);
+            
             break;
     }
 

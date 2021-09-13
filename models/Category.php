@@ -29,4 +29,20 @@ class Category extends Connection
 
         return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function CreateCategory($cat_nom, $cat_obs)
+    {
+        $connect = parent::connect();
+        parent::set_names();
+
+        $sql = $connect->prepare(
+            "INSERT INTO category(cat_nom,cat_obs,estatus) VALUES('?','?',1)"
+        );
+        $sql->bindValue(1, $cat_nom);
+        $sql->bindValue(2, $cat_obs);
+        $sql->execute();
+
+        return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }

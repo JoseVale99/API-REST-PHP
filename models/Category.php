@@ -44,5 +44,22 @@ class Category extends Connection
         return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
     // method for update the categories in database.
+    public function UpdateCategory($cat_id, $cat_nom, $cat_obs)
+    {
+        $connect = parent::connect();
+        parent::set_names();
 
+        $sql = $connect->prepare(
+            "UPDATE category SET
+                cat_nom =?, 
+                cat_obs =?,
+                WHERE
+                cat_id = ?");
+        $sql->bindValue(1, $cat_nom);
+        $sql->bindValue(2, $cat_obs);
+        $sql->bindValue(3, $cat_id);
+        $sql->execute();
+
+        return $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
